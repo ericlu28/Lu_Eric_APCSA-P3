@@ -8,6 +8,8 @@
 
 import static java.lang.System.*;
 
+import java.util.Scanner;
+
 public class StringEqualityRunner
 {
 	public static void main( String args[] )

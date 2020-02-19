@@ -8,6 +8,8 @@
 
 import static java.lang.System.*;
 
+import java.util.Scanner;
+
 public class WordsCompareRunner
 {
    public static void main( String args[] )

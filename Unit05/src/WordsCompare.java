@@ -10,7 +10,7 @@ import static java.lang.System.*;
 
 public class WordsCompare
 {
-	private String wordOne, wordTwo;
+   private String wordOne, wordTwo;
    private int compare;
 
 	public WordsCompare()
