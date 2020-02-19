@@ -10,34 +10,48 @@ public class Word
 
 	public Word()
 	{
+		word = "";
+		setString("");
 	}
 
 	public Word(String s)
 	{
+		word = "";
+		setString("");
 	}
 
 	public void setString(String s)
 	{
+		word = s;
 	}
 
 	public char getFirstChar()
 	{
-		return 0;
+		char a = ' ';
+		a = word.charAt(0);
+		return a;
 	}
 
 	public char getLastChar()
 	{
-		return 0;
+		char b = ' ';
+		b = word.charAt(word.length());
+		return b;
 	}
 
 	public String getBackWards()
 	{
-		String back="";
-		return back;
+		String backwards = "";
+		for (int i = word.length(); i >= 0; i--) 
+		{
+			backwards = backwards + word.substring(i-1, i);
+		}
+		return backwards;
 	}
 
  	public String toString()
  	{
- 		return "";
+ 		String output = getFirstChar() + "\n" + getLastChar() + "\n" + getBackWards() + "\n" + word;
+ 		return output;
 	}
 }
