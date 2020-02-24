@@ -24,33 +24,28 @@ public class Perfect
 	public boolean isPerfect()
 	{
 		int total = 0;
-		for (int i = 0; i < number; i++) 
+		for (int i = 1; i < number; i++) 
 		{
 			if (number % i == 0)
 			{
-				total = total + i;
+				total += i;
+				if (total == number) 
+				{
+					return true;
+				}
 			}
-			else
-			{
-			
-			}	
 		}
-		if (total == number)
-			return true;
-		else
-			return false;
-		
+		return false;
 	}
 
 	public String toString()
 	{
 		if (isPerfect() == true)
 		{
-			String output = number + " is perfect.";
-			return output;
+			return number + " is perfect.";
 		}
-			String output = number + " is not perfect.";
-			return output;
+			return number + " is not perfect.";
+
 	}
 	
 }

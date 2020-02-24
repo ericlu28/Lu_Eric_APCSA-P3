@@ -10,14 +10,12 @@ public class Word
 
 	public Word()
 	{
-		word = "";
 		setString("");
 	}
 
 	public Word(String s)
 	{
-		word = "";
-		setString("");
+		setString(s);
 	}
 
 	public void setString(String s)
@@ -35,16 +33,16 @@ public class Word
 	public char getLastChar()
 	{
 		char b = ' ';
-		b = word.charAt(word.length());
+		b = word.charAt(word.length() - 1);
 		return b;
 	}
 
 	public String getBackWards()
 	{
 		String backwards = "";
-		for (int i = word.length(); i >= 0; i--) 
+		for (int i = word.length(); i >= 1; i--) 
 		{
-			backwards = backwards + word.substring(i-1, i);
+			backwards = backwards + word.substring(i-1,i);
 		}
 		return backwards;
 	}

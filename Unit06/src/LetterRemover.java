@@ -28,19 +28,22 @@ public class LetterRemover
 
 	public String removeLetters()
 	{
-		String cleaned=sentence;
+		String newSentence = "";
 		for (int i = 0; i < sentence.length(); i++) {
-			if (cleaned.charAt(i) == lookFor){
+			if (sentence.charAt(i) == lookFor)
+			{
 				
 			}
 			else
-				cleaned = cleaned + sentence.charAt(i);
+			{
+				newSentence = newSentence + sentence.charAt(i);
+			}
 		}
-		return cleaned;
+		return newSentence;
 	}
 
 	public String toString()
 	{
-		return sentence + " - letter to remove " + lookFor;
+		return sentence + " - letter to remove " + lookFor + " \n" + removeLetters(); 
 	}
 }
