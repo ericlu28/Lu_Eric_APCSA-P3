@@ -77,6 +77,14 @@ public class Deck {
 	 */
 	public void shuffle() {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 4 *** */
+		for (int k = cards.length - 1; k>=0; k--)
+		{
+			int r = (int)(Math.random()*k);
+			Card tmp = cards[k];
+			cards[k] = cards[r];
+			cards[r] = tmp;
+		}
+			/*For k=51 down to 1, generate a random integer r, and exchange cards[k] and cards[r]*/
 		
 	}
 

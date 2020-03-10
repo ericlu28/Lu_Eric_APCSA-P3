@@ -61,22 +61,22 @@ public class Shuffler {
 	 */
 	public static void perfectShuffle(int[] values) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 3 *** */
-		int[] firstHalf = new int[VALUE_COUNT /2];
-		int[] secondHalf = new int[VALUE_COUNT - VALUE_COUNT / 2];
-		
-		for (int i = 0; i < VALUE_COUNT / 2; i++)
+		int[] shuffled = new int[52];
+		int k = 0;
+		for (int j = 0;j <= 25; j++)
 		{
-			firstHalf[i] = values[i];
+			shuffled[k] = values[j];
+			k = k+2;
 		}
-		for (int i = 0; i < VALUE_COUNT - VALUE_COUNT/2; i++)
-		{
-			secondHalf[i] = values[i + VALUE_COUNT/2];
+		k = 1;
+		for (int j = 26; j<=52; j++) {
+			shuffled[k] = values[j];
+			k = k+2;
 		}
-		
 		
 		
 	}
-
+		
 	/**
 	 * Apply an "efficient selection shuffle" to the argument.
 	 * The selection shuffle algorithm conceptually maintains two sequences
