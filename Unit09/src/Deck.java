@@ -12,7 +12,7 @@ public class Deck {
 	 * cards contains all the cards in the deck.
 	 */
 	/*private List<Card> cards;*/
-	private Card cards[];
+	private List<Card> cards;
 
 	/**
 	 * size is the number of not-yet-dealt cards.
@@ -45,7 +45,7 @@ public class Deck {
 			}
 		}
 		shuffle();
-		size = cards.length;
+		size = cards.size();
 	}
 
 
@@ -77,7 +77,7 @@ public class Deck {
 	 */
 	public void shuffle() {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 4 *** */
-		for (int k = cards.length - 1; k>=0; k--)
+		for (int k = cards.size() - 1; k<=0; k--)
 		{
 			int r = (int)(Math.random()*k);
 			Card tmp = cards[k];
@@ -125,12 +125,12 @@ public class Deck {
 		}
 
 		rtn = rtn + "\nDealt cards: \n";
-		for (int k = cards.length - 1; k >= size; k--) {
+		for (int k = cards.size() - 1; k >= size; k--) {
 			rtn = rtn + cards[k];
 			if (k != size) {
 				rtn = rtn + ", ";
 			}
-			if ((k - cards.length) % 2 == 0) {
+			if ((k - cards.size()) % 2 == 0) {
 				// Insert carriage returns so entire deck is visible on console.
 				rtn = rtn + "\n";
 			}
