@@ -11,10 +11,13 @@ public class Toy
 
 	public Toy()
 	{
+		setCount(0);
+		setName("");
 	}
 
 	public Toy( String nm )
 	{
+		setName(nm);
 	}
 	
 	public int getCount()
@@ -24,19 +27,21 @@ public class Toy
 	
 	public void setCount( int cnt )
 	{
+		count = cnt;
 	}
 	
 	public String getName()
 	{
-		return null;
+		return name;
 	}
 	
 	public void setName( String nm )
 	{
+		name = nm;
 	}
 
 	public String toString()
 	{
-	   return "";
+	   return getName() + " " + getCount();
 	}
 }
