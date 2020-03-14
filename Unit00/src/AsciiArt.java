@@ -27,5 +27,7 @@ public class AsciiArt
 		System.out.println("\\\\ draws one backslash on the screen!\n" );
 		System.out.println("\\\" draws one double quote on the screen!\n" );
 		System.out.println("\\\' draws one single quote on the screen!\n" ); 
+		
+		System.out.println("\"9" ); 
 	}
 }
