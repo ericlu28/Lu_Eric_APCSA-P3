@@ -32,20 +32,20 @@ public class Deck {
 	 */
 	public Deck(String[] ranks, String[] suits, int[] values) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
-		size = ranks.length * suits.length;
-		cards = new Card[size];
-		int i = 0;
+		cards = new ArrayList<Card>();
+		for (int i = 0; i<ranks.length*suits.length;i++)
+		{
 		for (int j = 0;j<ranks.length;j++)
 		{
 			for (int k = 0;k<suits.length;k++)
 			{
 				Card TheCard = new Card(ranks[j], suits[k], values[j]);
-				cards[i] = TheCard;
-				i++;
+				cards.add(TheCard);
+				size++;
 			}
 		}
 		shuffle();
-		size = cards.size();
+		}
 	}
 
 
@@ -77,15 +77,24 @@ public class Deck {
 	 */
 	public void shuffle() {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 4 *** */
-		for (int k = cards.size() - 1; k<=0; k--)
-		{
-			int r = (int)(Math.random()*k);
-			Card tmp = cards[k];
-			cards[k] = cards[r];
-			cards[r] = tmp;
-		}
-			/*For k=51 down to 1, generate a random integer r, and exchange cards[k] and cards[r]*/
 		
+		//this should work for just arrays for now, will be asked later to make it work with array lists
+		//use the efficient selectionShuffle
+		ArrayList<Card> shuffled = new ArrayList<Card>();
+		int r;
+		int i = 0;
+
+		do
+		{
+			r = (int) ( Math.random() * size() );		//r is a random number greater than 0 and less than or equal to i
+			shuffled.add(cards.get(r));					//add the card from cards at the random index r to the shuffled List
+//			cards.remove(r);							//remove the card from cards List
+			i++;
+		} while(i < size() );
+		
+		
+		
+		for(int q = 0; q < cards.size(); q++) cards.set(q,shuffled.get(q));
 	}
 
 	/**
@@ -100,7 +109,7 @@ public class Deck {
 			return null;
 		}
 		size--;
-		return cards[size];
+		return cards.get(size);
 		
 		
 	}
@@ -114,7 +123,7 @@ public class Deck {
 		String rtn = "size = " + size + "\nUndealt cards: \n";
 
 		for (int k = size - 1; k >= 0; k--) {
-			rtn = rtn + cards[k];
+			rtn = rtn + cards.get(k);
 			if (k != 0) {
 				rtn = rtn + ", ";
 			}
@@ -126,7 +135,7 @@ public class Deck {
 
 		rtn = rtn + "\nDealt cards: \n";
 		for (int k = cards.size() - 1; k >= size; k--) {
-			rtn = rtn + cards[k];
+			rtn = rtn + cards.get(k);
 			if (k != size) {
 				rtn = rtn + ", ";
 			}
