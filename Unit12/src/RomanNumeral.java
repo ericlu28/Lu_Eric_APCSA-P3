@@ -17,31 +17,58 @@ public class RomanNumeral implements Comparable<RomanNumeral>
 
 	public RomanNumeral(String str)
 	{
-		
+		setRoman(str);
+		setNumber(0);
 	}
 
 	public RomanNumeral(Integer orig)
 	{
-		
+		setNumber(orig);
+		setRoman("");
+	}
+//write a set roman method
+	public void setRoman(String s)
+	{
+		roman = s;
+	}
+	
+	public void setNumber(int i)
+	{
+		number = i;
+	}
+//write get methods for number and roman	
+	public int getNumber()
+	{
+		return number;
+	}
+	
+	public String getRoman()
+	{
+		return roman;
 	}
 
-	//write a set number method
-	
-	
-	
-	//write a set roman method
-
-
-	//write get methods for number and roman
-	
-	
 
 	public int compareTo(RomanNumeral r)
 	{
-		return 0;
+		return this.getNumber() - r.getNumber();
 	}
 
-	//write  toString() method
+//write toString() method
+	public String toString()
+	{
+		int num = number;
+		String s = "";
+		for (int j = 0; j<NUMBERS.length; j++)
+		{
+			while (num >= NUMBERS[j])
+			{
+				s += LETTERS[j];
+				num -= NUMBERS[j];
+			}
+		}
+		setRoman(s);
+		return s;
+	}
 	
 	
 	

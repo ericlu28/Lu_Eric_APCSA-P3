@@ -58,7 +58,7 @@ public class ToyStore
   			if (i.getCount() > max) 
   			{
   				max = i.getCount();
-  				max2 = toyList.get(i);
+  				max2 = i;
   			}
   		}
   		return max2;
