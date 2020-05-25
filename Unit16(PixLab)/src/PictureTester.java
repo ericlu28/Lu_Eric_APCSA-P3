@@ -123,6 +123,14 @@ public class PictureTester
 	  beach.mirrorGull();
 	  beach.explore();
   }
+  
+  public static void testMyCollage()
+  {
+	  Picture beach = new Picture("C:\\Users\\erica\\OneDrive\\Documents\\GitHub\\Lu_Eric_APCSA-P3\\Unit16(PixLab)\\src\\images\\seagull.jpg");
+	  beach.explore();
+	  beach.myCollage();
+	  beach.explore();
+  }
   /** Main method for testing.  Every class can have a main
     * method in Java */
   public static void main(String[] args)
@@ -146,8 +154,9 @@ public class PictureTester
     //testFixUnderwater();
     //testMirrorVertical();
     //testMirrorTemple();
-    testMirrorArms();
-    testMirrorGull();
+    //testMirrorArms();
+    //testMirrorGull();
+    testMyCollage();
     //testMirrorDiagonal();
     //testCollage();
     //testCopy();

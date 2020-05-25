@@ -346,6 +346,54 @@ public class Picture extends SimplePicture
     }   
   }
 
+  /** method for copy2**/
+  public void copy2(Picture fromPic, int startRow, int startCol,
+			int fromRowStart, int fromColStart, int fromRowEnd, int fromColEnd)
+	{
+		Pixel fromPixel = null;
+		Pixel toPixel = null;
+		Pixel[][] toPixels = this.getPixels2D();
+		Pixel[][] fromPixels = fromPic.getPixels2D();
+		if (fromRowStart < 0 || fromRowStart > fromPixels.length) {
+			fromRowStart = 0;
+		}
+		if (fromColStart < 0 || fromColStart > fromPixels[0].length) {
+			fromColStart = 0;
+		}
+		if (fromRowEnd < 0 || fromRowEnd > fromPixels.length) {
+			fromRowEnd = fromPixels.length;
+		}
+		if (fromColEnd < 0 || fromColEnd > fromPixels[0].length) {
+			fromColEnd = fromPixels[0].length;
+		}
+		for (int fromRow = fromRowStart, toRow = startRow; fromRow < fromRowEnd
+				&& toRow < toPixels.length; fromRow++, toRow++)
+		{
+			for (int fromCol = fromColStart, toCol = startCol; fromCol < fromColEnd
+					&& toCol < toPixels[0].length; fromCol++, toCol++)
+			{
+				fromPixel = fromPixels[fromRow][fromCol];
+				toPixel = toPixels[toRow][toCol];
+				toPixel.setColor(fromPixel.getColor());
+			}
+		}
+	}
+  /** method to make my own collage **/
+  public void myCollage()
+	{
+
+	Picture caterpillar = new Picture("C:\\Users\\erica\\OneDrive\\Documents\\GitHub\\Lu_Eric_APCSA-P3\\Unit16(PixLab)\\src\\images\\caterpillar.jpg");
+	Picture swan = new Picture("C:\\Users\\erica\\OneDrive\\Documents\\GitHub\\Lu_Eric_APCSA-P3\\Unit16(PixLab)\\src\\images\\swan.jpg");
+	Picture koala = new Picture("C:\\Users\\erica\\OneDrive\\Documents\\GitHub\\Lu_Eric_APCSA-P3\\Unit16(PixLab)\\src\\images\\koala.jpg");
+
+	this.copy(caterpillar, 0, 0);
+	caterpillar.mirrorHorizontal();
+	this.copy2(swan, 200, 0, 65, 308, 120, 400);
+	koala.grayscale();
+	this.copy2(koala, 300, 0, 78, 107, 202, 352);
+	this.mirrorVertical();
+	}
+  
   /** Method to create a collage of several pictures */
   public void createCollage()
   {
@@ -390,7 +438,29 @@ public class Picture extends SimplePicture
     }
   }
   
-  
+  /** edge detection 2 (needs work still) **/
+  public void edgeDetection2(int edgeDist)
+  {
+    Pixel leftPixel = null;
+    Pixel rightPixel = null;
+    Pixel[][] pixels = this.getPixels2D();
+    Color rightColor = null;
+    for (int row = 0; row < pixels.length; row++)
+    {
+      for (int col = 0; 
+           col < pixels[0].length-1; col++)
+      {
+        leftPixel = pixels[row][col];
+        rightPixel = pixels[row][col+1];
+        rightColor = rightPixel.getColor();
+        if (leftPixel.colorDistance(rightColor) > 
+            edgeDist)
+          leftPixel.setColor(Color.BLACK);
+        else
+          leftPixel.setColor(Color.WHITE);
+      }
+    }
+  }
   /* Main method for testing - each class in Java can have a main 
    * method 
    */
